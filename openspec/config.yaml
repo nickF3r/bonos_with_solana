@@ -1,0 +1,32 @@
+schema: spec-driven
+context: |
+  Proyecto: Sistema de bonos en Solana
+  Stack: Rust (programas on-chain), TypeScript (cliente y tests)
+  Framework: Anchor
+  Red: Solana Devnet / Mainnet-beta
+  Wallet: Phantom / solana-wallet-adapter
+  Tests: Anchor + Mocha
+  Arquitectura: programa on-chain + cliente off-chain
+  Convenciones:
+    - Programas en programs/
+    - Cliente en app/ o client/
+    - Tests en tests/
+    - PDAs documentados con seeds explícitos
+  Dominio:
+    - Bonus: tokens distribuidos a usuarios según criterios definidos
+    - Vault: cuenta que custodia los fondos del programa
+    - Claim: acción del usuario para retirar su bonus asignado
+
+rules:
+  proposal:
+    - Indicar si el cambio afecta el programa on-chain o solo el cliente
+    - Mencionar las cuentas de Solana involucradas
+  specs:
+    - Usar escenarios Given/When/Then
+    - Especificar instrucciones del programa afectadas
+  design:
+    - Documentar seeds de PDAs utilizados
+    - Indicar si requiere CPI (Cross-Program Invocation)
+  tasks:
+    - Separar tareas on-chain de tareas off-chain
+    - Incluir paso de deploy/upgrade del programa si aplica
